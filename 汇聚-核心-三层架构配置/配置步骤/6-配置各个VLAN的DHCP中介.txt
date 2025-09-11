@@ -1,0 +1,24 @@
+#Core-SW1  Core-SW2
+
+en
+conf t
+int vlan 10
+ip helper-address 192.168.12.3
+exit
+int vlan 20
+ip helper-address 192.168.12.3
+exit
+int vlan 30
+ip helper-address 192.168.12.3
+exit
+int vlan 40
+ip helper-address 192.168.12.3
+exit
+int vlan 50
+ip helper-address 192.168.12.3
+exit
+int vlan 60
+ip helper-address 192.168.12.3
+exit
+end
+wr

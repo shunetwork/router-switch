@@ -1,0 +1,149 @@
+# Core-SW1
+
+en
+conf t
+hostname Core-SW1
+no ip domain lookup
+vlan 10
+vlan 20
+vlan 30
+vlan 40
+vlan 50
+vlan 60
+
+
+# Core-SW2
+
+en
+conf t
+#hostname Core-SW2
+#no ip domain lookup 
+vlan 10
+vlan 20
+vlan 30
+vlan 40
+vlan 50
+vlan 60
+
+# HJ-SW1
+
+en
+conf t
+hostname HJ-SW1
+no ip domain lookup
+vlan 10
+vlan 20
+vlan 30
+vlan 40
+vlan 50
+vlan 60
+
+# HJ-SW2
+
+en
+conf t
+hostname HJ-SW2
+no ip domain lookup
+vlan 10
+vlan 20
+vlan 30
+vlan 40
+vlan 50
+vlan 60
+
+# HJ-SW3
+
+en
+conf t
+hostname HJ-SW3
+no ip domain lookup
+vlan 10
+vlan 20
+vlan 30
+vlan 40
+vlan 50
+vlan 60
+
+
+#JR-SW1
+
+Switch>en
+Switch#conf t
+Switch(config)#hostname JR-SW1
+JR-SW1(config)#no ip domain lookup 
+JR-SW1(config)#vlan 10
+JR-SW1(config-vlan)#vlan 20
+JR-SW1(config-vlan)#vlan 30
+JR-SW1(config-vlan)#vlan 40
+JR-SW1(config-vlan)#vlan 50
+JR-SW1(config-vlan)#vlan 60
+
+# JR-SW2
+
+Switch>en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#hostname JR-SW2
+JR-SW2(config)#no ip domain lookup
+JR-SW2(config)#vlan 10
+JR-SW2(config-vlan)#vlan 20
+JR-SW2(config-vlan)#vlan 30
+JR-SW2(config-vlan)#vlan 40
+JR-SW2(config-vlan)#vlan 50
+JR-SW2(config-vlan)#vlan 60
+
+
+# JR-SW3
+
+Switch>en
+Switch#conf t
+Switch(config)#hostname JR-SW3
+JR-SW3(config)#no ip domain lookup
+JR-SW3(config)#vlan 10
+JR-SW3(config-vlan)#vlan 20
+JR-SW3(config-vlan)#vlan 30
+JR-SW3(config-vlan)#vlan 40
+JR-SW3(config-vlan)#vlan 50
+JR-SW3(config-vlan)#vlan 60
+
+
+# JR-SW4
+
+Switch>en
+Switch#conf t
+Switch(config)#hostname JR-SW4
+JR-SW4(config)#no ip domain lookup
+JR-SW4(config)#vlan 10
+JR-SW4(config-vlan)#vlan 20
+JR-SW4(config-vlan)#vlan 30
+JR-SW4(config-vlan)#vlan 40
+JR-SW4(config-vlan)#vlan 50
+JR-SW4(config-vlan)#vlan 60
+
+
+# JR-SW5
+
+Switch>en
+Switch#conf t
+Switch(config)#hostname JR-SW5
+JR-SW5(config)#no ip domain lookup
+JR-SW5(config)#vlan 10
+JR-SW5(config-vlan)#vlan 20
+JR-SW5(config-vlan)#vlan 30
+JR-SW5(config-vlan)#vlan 40
+JR-SW5(config-vlan)#vlan 50
+JR-SW5(config-vlan)#vlan 60
+
+
+# JR-SW6
+
+Switch>en
+Switch#conf t
+Switch(config)#hostname JR-SW6
+JR-SW6(config)#no ip domain lookup
+JR-SW6(config)#vlan 10
+JR-SW6(config-vlan)#vlan 20
+JR-SW6(config-vlan)#vlan 30
+JR-SW6(config-vlan)#vlan 40
+JR-SW6(config-vlan)#vlan 50
+JR-SW6(config-vlan)#vlan 60

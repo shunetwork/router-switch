@@ -1,0 +1,106 @@
+#Core-SW1
+
+en
+conf t
+ip routing
+
+int f0/1
+no switchport 
+ip add 192.168.11.13 255.255.255.252
+no shut
+
+int f0/2
+no switchport 
+ip add 192.168.11.9 255.255.255.252
+no shut
+
+
+#Core-SW2
+
+en
+conf t
+ip routing
+int f0/1
+no switchport 
+ip add 192.168.11.2 255.255.255.252
+no shut 
+exit
+
+int f0/2
+no switchport 
+ip add 192.168.11.5 255.255.255.252
+no shut 
+exit
+
+
+#Core-Router1
+
+en
+conf t
+hostname Core-Router1
+no ip domain lookup
+int f0/0
+ip add 192.168.11.14 255.255.255.252
+no shut
+exit
+
+int f1/0
+ip add 192.168.11.6 255.255.255.252
+no shut
+exit
+
+int f1/1
+ip add 192.168.11.17 255.255.255.252
+no shut
+exit
+
+int f0/1
+ip add 192.168.11.21 255.255.255.252
+no shut
+
+#Core-Router2
+
+conf t
+hostname Core-Router2
+no ip domain lookup
+
+int f0/0
+ip add 192.168.11.2 255.255.255.252
+no shut
+exit
+
+int f1/0
+ip add 192.168.11.10 255.255.255.252
+no shut
+exit
+
+int f0/1
+ip add 192.168.11.18 255.255.255.252
+no shut
+exit
+
+int f1/1
+ip add 192.168.11.25 255.255.255.252
+no shut
+exit
+
+
+#FW1
+
+en
+conf t
+hostname FW1
+
+int g1/2
+ip add 192.168.11.22 255.255.255.252
+no shut
+
+int g1/3
+ip add 192.168.11.26 255.255.255.252
+no shut
+exit
+int g1/4
+ip add 192.168.11.29 255.255.255.252
+no shut
+end
+wr

@@ -1,0 +1,26 @@
+# Fw1 
+
+int g1/2
+nameif trust1
+security-level 100
+no shut
+
+
+int g1/3
+nameif trust2
+security-level 100
+no shut
+
+int g1/4
+nameif notrust
+security-level 0
+no shut
+
+access-list fx extended permit ip any any
+access-group fx in interface trust1
+access-group fx in interface trust2
+access-group fx in interface notrust
+
+access-group fx out interface trust1
+access-group fx out interface trust2
+access-group fx out interface notrust

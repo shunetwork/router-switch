@@ -1,0 +1,18 @@
+#CK-R
+en
+conf t
+ip nat pool DZC 56.34.112.3 56.34.112.8 netmask 255.255.255.240
+
+access-list 100 permit ip 192.168.20.0 0.0.0.255 any
+access-list 100 permit ip 192.168.30.0 0.0.0.255 any
+access-list 100 permit ip 192.168.40.0 0.0.0.255 any
+access-list 100 permit ip 192.168.50.0 0.0.0.255 any
+access-list 100 permit ip 192.168.60.0 0.0.0.255 any
+ip nat inside source list 100 pool DZC overload
+
+ip route 0.0.0.0 0.0.0.0 56.34.112.2
+
+ip nat inside source static tcp 192.168.12.1 80 56.34.112.10 80
+
+end
+wr

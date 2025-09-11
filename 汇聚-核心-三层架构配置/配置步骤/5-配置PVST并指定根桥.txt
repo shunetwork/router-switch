@@ -1,0 +1,18 @@
+# Core-SW1
+en
+conf t
+spanning-tree mode pvst
+spanning-tree vlan 10,20,30 root primary
+spanning-tree vlan 40,50,60  root secondary
+end
+wr
+
+# Core-SW2
+
+en
+conf t
+spanning-tree mode pvst
+spanning-tree vlan 10,20,30 root secondary
+spanning-tree vlan 40,50,60 root primary
+end
+wr

@@ -1,0 +1,38 @@
+#Core-SW1
+
+en
+conf t
+int vlan 10
+ip add 192.168.10.254 255.255.255.0
+int vlan 20
+ip add 192.168.20.254 255.255.255.0
+int vlan 30
+ip add 192.168.30.254 255.255.255.0
+int vlan 40
+ip add 192.168.40.254 255.255.255.0
+int vlan 50
+ip add 192.168.50.254 255.255.255.0
+int vlan 60
+ip add 192.168.60.254 255.255.255.0
+end
+wr
+
+
+#Core-SW2
+
+en
+conf t
+int vlan 10
+ip add 192.168.10.253 255.255.255.0
+int vlan 20
+ip add 192.168.20.253 255.255.255.0
+int vlan 30
+ip add 192.168.30.253 255.255.255.0
+int vlan 40
+ip add 192.168.40.253 255.255.255.0
+int vlan 50
+ip add 192.168.50.253 255.255.255.0
+int vlan 60
+ip add 192.168.60.253 255.255.255.0
+end
+wr
