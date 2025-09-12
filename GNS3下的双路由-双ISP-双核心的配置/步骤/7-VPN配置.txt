@@ -1,0 +1,104 @@
+# AveiroGW1
+
+conf t
+! ISAKMP 策略
+crypto isakmp policy 30
+ authentication pre-share
+
+! 预共享密钥（对端 PortoGW1 公网地址）
+crypto isakmp key xpto-sitecom address 193.10.11.2
+
+! IPSec transform-set
+crypto ipsec transform-set TS1 esp-des ah-sha-hmac
+
+! 配置 IPSec profile
+crypto ipsec profile VPN-PROFILE
+ set transform-set TS1
+
+! 配置 Tunnel0 接口
+interface Tunnel0
+ ip unnumbered FastEthernet0/1
+ tunnel source 193.10.10.2
+ tunnel destination 193.10.11.2
+ tunnel mode ipsec ipv4
+ tunnel protection ipsec profile VPN-PROFILE
+end
+
+
+# PortoGW1
+
+conf t
+crypto isakmp policy 30
+ authentication pre-share
+
+crypto isakmp key xpto-sitecom address 193.10.10.2
+
+crypto ipsec transform-set TS1 esp-des ah-sha-hmac
+
+crypto ipsec profile VPN-PROFILE
+ set transform-set TS1
+
+interface Tunnel0
+ ip unnumbered FastEthernet0/1
+ tunnel source 193.10.11.2
+ tunnel destination 193.10.10.2
+ tunnel mode ipsec ipv4
+ tunnel protection ipsec profile VPN-PROFILE
+end
+
+# AveiroGW2
+
+conf t
+crypto isakmp policy 30
+ authentication pre-share
+
+crypto isakmp key xpto-sitecom address 193.10.21.2
+
+crypto ipsec transform-set TS2 esp-des ah-sha-hmac
+
+crypto ipsec profile VPN-PROFILE2
+ set transform-set TS2
+
+interface Tunnel0
+ ip unnumbered FastEthernet0/1
+ tunnel source 193.10.20.2
+ tunnel destination 193.10.21.2
+ tunnel mode ipsec ipv4
+ tunnel protection ipsec profile VPN-PROFILE2
+end
+
+# PortoGW2
+
+conf t
+crypto isakmp policy 30
+ authentication pre-share
+
+crypto isakmp key xpto-sitecom address 193.10.20.2
+
+crypto ipsec transform-set TS2 esp-des ah-sha-hmac
+
+crypto ipsec profile VPN-PROFILE2
+ set transform-set TS2
+
+interface Tunnel0
+ ip unnumbered FastEthernet0/1
+ tunnel source 193.10.21.2
+ tunnel destination 193.10.20.2
+ tunnel mode ipsec ipv4
+ tunnel protection ipsec profile VPN-PROFILE2
+end
+
+验证方式
+
+在 GW 上执行：
+
+show crypto isakmp sa
+show crypto ipsec sa
+
+
+测试连通性：
+
+ping 172.30.10.1 source 172.29.10.1
+
+
+确认 ICMP 流量是否通过 VPN 隧道。

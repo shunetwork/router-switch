@@ -1,0 +1,72 @@
+# AveiroGW1
+
+conf t
+access-list 1 permit 172.30.0.0 0.0.255.255
+access-list 1 permit 172.31.0.0 0.0.255.255
+
+ip nat pool POOLR 193.1.1.128 193.1.1.255 netmask 255.255.255.128
+ip nat inside source list 1 pool POOLR overload
+
+interface f0/0
+ ip nat inside
+interface f0/1
+ ip nat outside
+interface f1/1
+ ip nat inside
+interface f1/0
+ ip nat inside
+end
+
+# AveiroGW2
+
+conf t
+access-list 1 permit 172.30.0.0 0.0.255.255
+access-list 1 permit 172.31.0.0 0.0.255.255
+
+ip nat pool POOLR2 193.1.1.128 193.1.1.255 netmask 255.255.255.128
+ip nat inside source list 1 pool POOLR2 overload
+
+interface f0/0
+ ip nat inside
+interface f0/1
+ ip nat outside
+interface f1/0
+ ip nat inside
+interface f1/1
+ ip nat inside
+end
+
+# PortoGW1
+
+conf t
+access-list 1 permit 172.29.0.0 0.0.255.255
+
+ip nat pool POOLP1 193.2.2.128 193.2.2.255 netmask 255.255.255.128
+ip nat inside source list 1 pool POOLP1 overload
+
+interface f0/0
+ ip nat inside
+interface f0/1
+ ip nat outside
+interface f1/0
+ ip nat inside
+end
+
+# PortoGW2
+
+conf t
+access-list 1 permit 172.29.0.0 0.0.255.255
+
+ip nat pool POOLP2 193.2.2.128 193.2.2.255 netmask 255.255.255.128
+ip nat inside source list 1 pool POOLP2 overload
+
+interface f0/0
+ ip nat inside
+interface f0/1
+ ip nat outside
+interface f1/0
+ ip nat inside
+end
+
+
+

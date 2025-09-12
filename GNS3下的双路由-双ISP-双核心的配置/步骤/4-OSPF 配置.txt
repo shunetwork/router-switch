@@ -1,0 +1,144 @@
+# AveiroGW1
+
+conf t
+router ospf 1
+ router-id 1.0.1.0
+ default-information originate always metric 5
+ network 172.30.10.0 0.0.0.255 area 0
+ network 172.30.30.0 0.0.0.255 area 0
+ network 172.30.40.0 0.0.0.255 area 0
+end
+
+
+# AveiroGW2
+
+conf t
+router ospf 1
+ router-id 2.0.2.0
+ default-information originate always metric 10
+ network 172.30.20.0 0.0.0.255 area 0
+ network 172.30.50.0 0.0.0.255 area 0
+ network 172.30.30.0 0.0.0.255 area 0
+end
+
+
+# PortoGW1
+
+conf t
+router ospf 1
+ router-id 1.0.1.0
+ default-information originate always metric 5
+ network 172.29.10.0 0.0.0.255 area 0
+ network 172.29.30.0 0.0.0.255 area 0
+end
+
+
+# PortoGW2
+
+conf t
+router ospf 1
+ router-id 2.0.2.0
+ default-information originate always metric 10
+ network 172.29.20.0 0.0.0.255 area 0
+ network 172.29.30.0 0.0.0.255 area 0
+end
+
+
+# Core1
+
+conf t
+router ospf 1
+ router-id 1.1.1.1
+ network 172.30.60.0 0.0.0.255 area 0
+ network 172.30.1.0 0.0.0.255 area 0
+ network 172.30.2.0 0.0.0.255 area 0
+ network 172.30.3.0 0.0.0.255 area 0
+ network 172.30.4.0 0.0.0.255 area 0
+ network 172.30.5.0 0.0.0.255 area 0
+ network 172.30.100.0 0.0.0.255 area 0
+end
+
+# Core2
+
+conf t
+router ospf 1
+ router-id 2.2.2.2
+ network 172.30.60.0 0.0.0.255 area 0
+ network 172.30.11.0 0.0.0.255 area 0
+ network 172.30.12.0 0.0.0.255 area 0
+ network 172.30.13.0 0.0.0.255 area 0
+ network 172.30.14.0 0.0.0.255 area 0
+ network 172.30.15.0 0.0.0.255 area 0
+ network 172.30.100.0 0.0.0.255 area 0
+ network 172.30.20.0 0.0.0.255 area 0
+ network 172.30.40.0 0.0.0.255 area 0
+end
+
+# NewBuilding1
+
+conf t
+router ospf 1
+ router-id 11.11.11.11
+ network 172.30.100.0 0.0.0.255 area 0
+ network 172.30.3.0 0.0.0.255 area 0
+ network 172.30.13.0 0.0.0.255 area 0
+ network 172.30.51.0 0.0.0.255 area 100
+ network 172.30.52.0 0.0.0.255 area 100
+ network 172.30.53.0 0.0.0.255 area 100
+ network 193.1.1.16 0.0.0.15 area 100
+ network 193.1.1.32 0.0.0.15 area 100
+ network 193.1.1.48 0.0.0.15 area 100
+ network 193.1.1.0  0.0.0.15 area 100
+end
+
+# NewBuilding2
+
+conf t
+router ospf 1
+ router-id 12.12.12.12
+ network 172.30.100.0 0.0.0.255 area 0
+ network 172.30.2.0 0.0.0.255 area 0
+ network 172.30.12.0 0.0.0.255 area 0
+ network 172.30.51.0 0.0.0.255 area 100
+ network 172.30.52.0 0.0.0.255 area 100
+ network 172.30.53.0 0.0.0.255 area 100
+ network 193.1.1.16 0.0.0.15 area 100
+ network 193.1.1.32 0.0.0.15 area 100
+ network 193.1.1.48 0.0.0.15 area 100
+ network 193.1.1.0  0.0.0.15 area 100
+end
+
+# Datacenter
+
+conf t
+router ospf 1
+ router-id 71.71.71.71
+ network 172.30.100.0 0.0.0.255 area 0
+ network 172.30.4.0 0.0.0.255 area 0
+ network 172.30.14.0 0.0.0.255 area 0
+ network 193.1.1.64 0.0.0.31 area 71
+end
+
+
+# DMZ
+
+conf t
+router ospf 1
+ router-id 72.72.72.72
+ network 172.30.100.0 0.0.0.255 area 0
+ network 172.30.5.0 0.0.0.255 area 0
+ network 172.30.15.0 0.0.0.255 area 0
+ network 193.1.1.96 0.0.0.31 area 72
+end
+
+# PortoCore
+
+conf t
+router ospf 1
+ router-id 193.2.2.1
+ network 172.29.10.0 0.0.0.255 area 0
+ network 172.29.20.0 0.0.0.255 area 0
+ network 193.2.2.0 0.0.0.127 area 0
+end
+
+

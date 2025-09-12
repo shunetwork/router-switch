@@ -1,0 +1,303 @@
+# Core1
+
+vlan database
+ vlan 501
+ vlan 502
+ vlan 503
+ vlan 504
+ vlan 505
+ vlan 560
+ vlan 600
+exit
+
+conf t
+interface Vlan560
+ ip address 172.30.60.1 255.255.255.0
+ no shut
+
+interface Vlan501
+ ip address 172.30.1.1 255.255.255.0
+ no shut
+
+interface Vlan502
+ ip address 172.30.2.1 255.255.255.0
+ no shut
+
+interface Vlan503
+ ip address 172.30.3.1 255.255.255.0
+ no shut
+
+interface Vlan504
+ ip address 172.30.4.1 255.255.255.0
+ no shut
+
+interface Vlan505
+ ip address 172.30.5.1 255.255.255.0
+ no shut
+
+interface Vlan600
+ ip address 172.30.100.1 255.255.255.0
+ no shut
+end
+
+
+#  Core2
+
+vlan database
+ vlan 511
+ vlan 512
+ vlan 513
+ vlan 514
+ vlan 515
+ vlan 560
+ vlan 600
+exit
+
+conf t
+interface Vlan560
+ ip address 172.30.60.2 255.255.255.0
+ no shut
+
+interface Vlan511
+ ip address 172.30.11.1 255.255.255.0
+ no shut
+
+interface Vlan512
+ ip address 172.30.12.1 255.255.255.0
+ no shut
+
+interface Vlan513
+ ip address 172.30.13.1 255.255.255.0
+ no shut
+
+interface Vlan514
+ ip address 172.30.14.1 255.255.255.0
+ no shut
+
+interface Vlan515
+ ip address 172.30.15.1 255.255.255.0
+ no shut
+
+interface Vlan600
+ ip address 172.30.100.2 255.255.255.0
+ no shut
+end
+
+# NewBuilding1
+
+vlan database
+ vlan 503
+ vlan 513
+ vlan 551
+ vlan 552
+ vlan 553
+ vlan 561
+ vlan 562
+ vlan 563
+ vlan 564
+ vlan 600
+exit
+
+conf t
+interface Vlan600
+ ip address 172.30.100.3 255.255.255.0
+ no shut
+
+interface Vlan503
+ ip address 172.30.3.2 255.255.255.0
+ no shut
+
+interface Vlan513
+ ip address 172.30.13.2 255.255.255.0
+ no shut
+
+interface Vlan551
+ ip address 172.30.51.1 255.255.255.0
+ no shut
+
+interface Vlan552
+ ip address 172.30.52.1 255.255.255.0
+ no shut
+
+interface Vlan553
+ ip address 172.30.53.1 255.255.255.0
+ no shut
+
+interface Vlan561
+ ip address 193.1.1.17 255.255.255.240
+ no shut
+
+interface Vlan562
+ ip address 193.1.1.33 255.255.255.240
+ no shut
+
+interface Vlan563
+ ip address 193.1.1.49 255.255.255.240
+ no shut
+
+interface Vlan564
+ ip address 193.1.1.1 255.255.255.240
+ no shut
+end
+
+
+# NewBuilding2
+
+vlan database
+ vlan 502
+ vlan 512
+ vlan 551
+ vlan 552
+ vlan 553
+ vlan 561
+ vlan 562
+ vlan 563
+ vlan 564
+ vlan 600
+ vlan 570
+exit
+
+conf t
+interface Vlan600
+ ip address 172.30.100.4 255.255.255.0
+ no shut
+
+interface Vlan502
+ ip address 172.30.2.2 255.255.255.0
+ no shut
+
+interface Vlan512
+ ip address 172.30.12.2 255.255.255.0
+ no shut
+
+interface Vlan551
+ ip address 172.30.51.2 255.255.255.0
+ no shut
+
+interface Vlan552
+ ip address 172.30.52.2 255.255.255.0
+ no shut
+
+interface Vlan553
+ ip address 172.30.53.2 255.255.255.0
+ no shut
+
+interface Vlan561
+ ip address 193.1.1.18 255.255.255.240
+ no shut
+
+interface Vlan562
+ ip address 193.1.1.34 255.255.255.240
+ no shut
+
+interface Vlan563
+ ip address 193.1.1.50 255.255.255.240
+ no shut
+
+interface Vlan564
+ ip address 193.1.1.2 255.255.255.240
+ no shut
+end
+
+# Datacenter
+
+vlan database
+ vlan 504
+ vlan 514
+ vlan 571
+ vlan 600
+exit
+
+conf t
+interface Vlan600
+ ip address 172.30.100.5 255.255.255.0
+ no shut
+
+interface Vlan504
+ ip address 172.30.4.2 255.255.255.0
+ no shut
+
+interface Vlan514
+ ip address 172.30.14.2 255.255.255.0
+ no shut
+
+interface Vlan571
+ ip address 193.1.1.65 255.255.255.224
+ no shut
+end
+
+# DMZ
+
+vlan database
+ vlan 505
+ vlan 515
+ vlan 572
+ vlan 600
+exit
+
+conf t
+interface Vlan600
+ ip address 172.30.100.6 255.255.255.0
+ no shut
+
+interface Vlan505
+ ip address 172.30.5.2 255.255.255.0
+ no shut
+
+interface Vlan515
+ ip address 172.30.15.2 255.255.255.0
+ no shut
+
+interface Vlan572
+ ip address 193.1.1.97 255.255.255.224
+ no shut
+end
+
+
+
+
+
+# Old Building
+
+conf t
+
+vlan database
+ vlan 1
+ vlan 2
+ vlan 3
+ vlan 100
+ vlan 200
+ vlan 501
+ vlan 511
+exit
+
+interface Vlan1
+ ip address 172.31.1.1 255.255.255.0
+ no shut
+
+interface Vlan2
+ ip address 172.31.2.1 255.255.255.0
+ no shut
+
+interface Vlan3
+ ip address 172.31.3.1 255.255.255.0
+ no shut
+
+interface Vlan100
+ ip address 172.31.100.1 255.255.255.0
+ no shut
+
+interface Vlan200
+ ip address 172.31.200.1 255.255.255.0
+ no shut
+
+interface Vlan501
+ ip address 172.30.1.2 255.255.255.0
+ no shut
+
+interface Vlan511
+ ip address 172.30.11.2 255.255.255.0
+ no shut
+end
+
+

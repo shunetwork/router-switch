@@ -1,0 +1,14 @@
+vlan 501
+name Management
+vlan 502
+name Sales
+vlan 503
+name Engineering
+vlan 504
+name HR
+vlan 505
+name Finance
+vlan 560
+name Datacenter
+vlan 600
+name DMZ
