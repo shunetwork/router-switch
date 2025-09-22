@@ -1,0 +1,67 @@
+# Fw1
+
+!
+interface GigabitEthernet1/1
+ nameif OUTSIDE1
+ security-level 0
+ ip address 105.100.50.2 255.255.255.224
+ no shutdown
+!
+interface GigabitEthernet1/2
+ nameif OUTSIDE2
+ security-level 0
+ ip address 197.200.100.2 255.255.255.252
+ no shutdown
+!
+interface GigabitEthernet1/3
+ nameif INSIDE1
+ security-level 100
+ ip address 10.2.2.2 255.255.255.252
+ no shutdown
+!
+interface GigabitEthernet1/4
+ nameif INSIDE2
+ security-level 100
+ ip address 10.2.2.10 255.255.255.252
+ no shutdown
+!
+interface GigabitEthernet1/5
+ nameif DMZ
+ security-level 70
+ ip address 10.11.11.7 255.255.255.224
+ no shutdown
+!
+end
+copy running-config startup-config
+
+
+# PERMETER-FW2
+
+conf t
+interface GigabitEthernet1/1
+ nameif OUTSIDE1
+ security-level 0
+ ip address 105.100.50.6 255.255.255.224
+ no shutdown
+!
+interface GigabitEthernet1/2
+ nameif OUTSIDE2
+ security-level 0
+ ip address 197.200.100.6 255.255.255.252
+ no shutdown
+!
+interface GigabitEthernet1/3
+ nameif INSIDE1
+ security-level 100
+ ip address 10.2.2.6 255.255.255.252
+ no shutdown
+!
+interface GigabitEthernet1/4
+ nameif INSIDE2
+ security-level 100
+ ip address 10.2.2.14 255.255.255.252
+ no shutdown
+end
+copy running-config startup-config
+
+

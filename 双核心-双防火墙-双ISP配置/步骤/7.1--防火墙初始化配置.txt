@@ -1,0 +1,17 @@
+
+hostname PERMETER-FW2
+
+enable password cisco
+banner motd #
+Name: 0918-case
+password: cisco
+#
+
+username cisco password cisco privilege 15
+
+crypto key generate rsa modulus 1024
+ssh version 2
+
+write memory
+
+

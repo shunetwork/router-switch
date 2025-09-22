@@ -1,0 +1,96 @@
+CORE-SW1 
+***************************************************
+vlan10 20的主交换机是 sw1 备份 sw2
+vlan50 90的主交换机是 sw2 备份 sw1
+
+
+interface Vlan10
+ ip address 192.168.10.3 255.255.255.0
+ ip helper-address 10.11.11.38
+ standby 10 ip 192.168.10.1
+ standby 10 preempt 
+ standby 10 priority 120
+ standby 10 track g1/0/1
+ standby 10 track g1/0/2
+ exit
+
+interface Vlan20
+ ip address 172.16.0.3 255.255.0.0
+ ip helper-address 10.11.11.38
+ standby 20 ip 172.16.0.1
+ standby 20 preempt 
+ standby 20 priority 120
+ standby 20 track g1/0/1
+ standby 20 track g1/0/2
+ exit
+
+interface Vlan50
+ ip address 10.20.0.2 255.255.0.0
+ ip helper-address 10.11.11.38
+ standby 50 ip 10.20.0.1
+ standby 50 preempt 
+ standby 50 priority 110
+ standby 50 track g1/0/1
+ standby 50 track g1/0/2
+ exit
+
+interface Vlan90
+ ip address 10.11.11.34 255.255.255.224
+ standby 90 ip 10.11.11.33
+ standby 90 preempt 
+ standby 90 priority 110
+ standby 90 track g1/0/1
+ standby 90 track g1/0/2
+ ex
+ end
+ wr
+
+
+
+******************************************************
+
+CORE-SW2 
+***************************************************
+
+interface Vlan10
+ ip address 192.168.10.2 255.255.255.0
+ ip helper-address 10.11.11.38
+ standby 10 ip 192.168.10.1
+ standby 10 preempt 
+ standby 10 priority 110
+ standby 10 track g1/0/1
+ standby 10 track g1/0/2
+ exit
+
+interface Vlan20
+ ip address 172.16.0.2 255.255.0.0
+ ip helper-address 10.11.11.38
+ standby 20 ip 172.16.0.1
+ standby 20 preempt 
+ standby 20 priority 110
+ standby 20 track g1/0/1
+ standby 20 track g1/0/2
+ exit
+
+interface Vlan50
+ ip address 10.20.0.3 255.255.0.0
+ ip helper-address 10.11.11.38
+ standby 50 ip 10.20.0.1
+ standby 50 preempt 
+ standby 50 priority 120
+ standby 50 track g1/0/1
+ standby 50 track g1/0/2
+ exit
+
+interface Vlan90
+ ip address 10.11.11.35 255.255.255.224
+ standby 90 ip 10.11.11.33
+ standby 90 preempt 
+ standby 90 priority 120
+ standby 90 track g1/0/1
+ standby 90 track g1/0/2
+ end
+wr
+
+
+

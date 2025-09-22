@@ -1,0 +1,21 @@
+Core-sw1
+*******************
+interface range gig1/0/9-11
+channel-group 1 mode active
+ex
+interface port-channel 1
+switchport mode trunk 
+end
+wr
+
+
+Core-sw2
+*******************
+interface range gig1/0/9-11
+channel-group 1 mode passive
+ex
+interface port-channel 1
+switchport mode trunk 
+end
+wr
+
