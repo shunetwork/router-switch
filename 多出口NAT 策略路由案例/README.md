@@ -2,7 +2,7 @@
 
 实战架构
 
-![拓扑图](https://github.com/shunetwork/router-switch/raw/main/多出口NAT策略路由案例/拓扑图/拓扑.jpg)
+![NAT 策略路由 拓扑图](https://github.com/shunetwork/router-switch/raw/main/%E5%A4%9A%E5%87%BA%E5%8F%A3NAT%20%E7%AD%96%E7%95%A5%E8%B7%AF%E7%94%B1%E6%A1%88%E4%BE%8B/%E6%8B%93%E6%89%91%E5%9B%BE/%E6%8B%93%E6%89%91.jpg)
 
 
 多出口NAT 策略路由
