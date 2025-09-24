@@ -1,0 +1,44 @@
+# R3
+
+conf t
+int f0/0
+ ip nat inside
+ exit
+int f0/1
+ ip nat outside
+ exit
+
+ip access-list extended NONAT
+ deny   ip 192.168.1.0 0.0.0.255 172.16.1.0 0.0.0.255
+ permit ip 192.168.1.0 0.0.0.255 any
+ exit
+exit
+
+
+ip nat inside source list NONAT interface f0/1 overload
+end
+wr
+
+# R4
+
+conf t
+int f0/0
+ ip nat inside
+ exit
+int f0/1
+ ip nat outside
+ exit
+
+ip access-list extended NONAT
+ deny   ip 172.16.1.0 0.0.0.255 192.168.1.0 0.0.0.255 
+ permit ip 172.16.1.0 0.0.0.255 any
+ exit
+
+ip nat inside source list NONAT interface f0/1 overload
+end
+wr
+
+
+
+
+

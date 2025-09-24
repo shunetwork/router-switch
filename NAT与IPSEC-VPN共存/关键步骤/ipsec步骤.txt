@@ -1,0 +1,65 @@
+# R3
+
+ip access-list extended VPN-TRAFFIC
+ permit ip 192.168.1.0 0.0.0.255 172.16.1.0 0.0.0.255
+ exit
+
+crypto isakmp policy 10
+ encr aes 256      
+ hash sha256     
+ authentication pre-share
+ group 14        
+ lifetime 86400
+ exit
+
+
+crypto isakmp key cisco123 address 24.1.1.1
+crypto ipsec transform-set TS esp-aes 256 esp-sha-hmac
+ mode tunnel
+ exit
+
+crypto map VPN-MAP 10 ipsec-isakmp
+ set peer 24.1.1.1
+ set transform-set TS
+ match address VPN-TRAFFIC
+ exit
+
+int f0/1
+ crypto map VPN-MAP
+ end
+wr
+
+
+
+
+# R4
+
+ip access-list extended VPN-TRAFFIC
+ permit ip 172.16.1.0 0.0.0.255 192.168.1.0 0.0.0.255
+ exit 
+
+crypto isakmp policy 10
+ encr aes 256      
+ hash sha256     
+ authentication pre-share
+ group 14        
+ lifetime 86400
+ exit
+
+crypto isakmp key cisco123 address 13.1.1.1
+crypto ipsec transform-set TS esp-aes 256 esp-sha-hmac
+ mode tunnel
+ exit
+
+crypto map VPN-MAP 10 ipsec-isakmp
+ set peer 13.1.1.1
+ set transform-set TS
+ match address VPN-TRAFFIC
+ exit
+
+int f0/1
+ crypto map VPN-MAP
+ end
+wr
+
+
