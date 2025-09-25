@@ -1,0 +1,30 @@
+# ASA
+
+conf t
+hostname ASAFW
+no ip domain lookup
+
+int g0/0
+nameif Outside
+vlan 2
+ip add 202.100.1.10 255.255.255.0
+no shut
+exit
+
+int g0/1
+no shut
+int g0/1.3
+vlan 3
+nameif Inside
+ip add 10.1.1.10 255.255.255.0
+int g0/1.4
+vlan 4
+nameif DMZ
+security-level 50
+ip add 192.168.1.10 255.255.255.0
+
+int man0/0
+nameif MGMT
+security-level 100
+ip add 10.10.10.10 255.255.255.0
+

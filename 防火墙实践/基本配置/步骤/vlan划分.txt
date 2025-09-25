@@ -1,0 +1,29 @@
+#SW
+
+vlan 2 
+name Outside
+VLAN 3
+ame Inside 
+vlan 4
+name DMZ
+
+int g0/0
+sw mode acc
+sw acc vlan 2
+int g1/1
+sw mode acc
+sw acc vlan 2
+no shut
+int g1/2
+sw mode acc
+sw acc vlan 3
+no shut
+int g1/3
+sw mode acc
+sw acc vlan 4
+no shut
+
+int g0/1
+sw trunk encapsulation dot1q
+sw mode trunk
+sw trunk allow vlan 3,4

@@ -1,0 +1,42 @@
+# Outside
+conf t
+hostname Outside
+no ip domain lookup
+int f0/1
+ip add 202.100.1.1 255.255.255.0
+no shut
+ip route 0.0.0.0 0.0.0.0 202.100.1.10 
+line vty 0 4
+password cisco
+transport input all
+end
+wr
+
+# DMZ
+conf t
+hostname DMZ
+no ip domain lookup
+int g0/0
+ip add 192.168.1.1 255.255.255.0
+no shut
+ip route 0.0.0.0 0.0.0.0 192.168.1.10 
+line vty 0 4
+password cisco
+transport input all
+end
+wr
+
+# Inside
+conf t
+hostname Inside
+no ip domain lookup
+int f0/0
+ip add 10.1.1.1 255.255.255.0
+no shut
+ip route 0.0.0.0 0.0.0.0 10.1.1.10 
+line vty 0 4
+password cisco
+transport input all
+end
+wr
+
