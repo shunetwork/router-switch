@@ -1,0 +1,21 @@
+########################STUDFF-STUD-LB###################
+
+conf t
+vlan 90
+name STUDFF
+vlan 100
+name STUD-LB
+
+
+int e0/0
+sw trunk en dot1q
+sw mode trunk
+sw trunk allowed vlan 1,90,100
+no shut
+int e0/1
+sw mode access
+sw access vlan 100
+no shut
+end
+wr
+!

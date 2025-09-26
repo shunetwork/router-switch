@@ -1,0 +1,32 @@
+########################AMDIN-HR-FINANCE-BUSINESS-EC-AD-STUDO-LAB-ITDEP###################
+
+conf t
+vlan 10
+name ADMIN
+vlan 20
+name HR
+vlan 30
+name FINANCE
+vlan 40
+name BUSINESS
+vlan 50
+name EC
+vlan 60
+name AD
+vlan 70
+name STUDO-LAB
+vlan 80
+name ITDEP
+
+int e0/0
+sw trunk en dot1q
+sw mode trunk
+sw trunk allowed vlan 1,10,20,30,40,50,60,70,80
+no shut
+int e0/1
+sw mode access
+sw access vlan 50
+no shut
+end
+wr
+!
