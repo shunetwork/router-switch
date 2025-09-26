@@ -27,3 +27,6 @@ int g0/1
 sw trunk encapsulation dot1q
 sw mode trunk
 sw trunk allow vlan 3,4
+
+
+

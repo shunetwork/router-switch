@@ -1,0 +1,22 @@
+# DMZ
+
+conf t
+int lo 0
+ip add 2.2.2.2 255.255.255.255 
+ip ospf network point-to-point 
+exit
+
+router ospf 1
+router-id 2.2.2.2
+network 2.2.2.2 0.0.0.255 area 0
+network 192.168.1.0 0.0.0.255 area 0
+do wr
+end
+
+# ASA
+
+#OSPF
+
+router ospf  1
+router-id 10.10.10.10
+network 192.168.1.0 255.255.255.0 area 0

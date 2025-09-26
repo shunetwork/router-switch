@@ -28,3 +28,14 @@ nameif MGMT
 security-level 100
 ip add 10.10.10.10 255.255.255.0
 
+# 端口互通 需要配置
+access-list acl_Test1 extended permit ip any any
+access-list acl_Test2 extended permit ip any any
+access-group acl_Test1 in interface Inside
+access-group acl_Test1 in interface DMZ
+access-list acl_Test3 extended permit ip any any
+access-group acl_Test3 in interface Outside
+
+
+
+
