@@ -17,6 +17,8 @@ vlan 70
 name STUDO-LAB
 vlan 80
 name ITDEP
+exit
+!
 
 int e0/0
 sw trunk en dot1q
@@ -30,3 +32,5 @@ no shut
 end
 wr
 !
+
+

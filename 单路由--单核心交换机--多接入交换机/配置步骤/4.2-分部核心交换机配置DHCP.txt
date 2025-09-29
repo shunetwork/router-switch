@@ -1,0 +1,20 @@
+# BRNCH-sw
+
+conf t
+
+ip dhcp excluded-address 192.168.9.1 192.168.9.5
+ip dhcp pool vlan90-POOL
+ network 192.168.9.10 255.255.255.0
+ default-router 192.168.9.1
+ dns-server 8.8.8.8 114.114.114.114
+ exit
+!
+ip dhcp excluded-address 192.168.10.1 192.168.10.5
+ip dhcp pool vlan100-POOL
+ network 192.168.10.10 255.255.255.0
+ default-router 192.168.10.1
+ dns-server 8.8.8.8 114.114.114.114
+ exit
+end
+wr
+!

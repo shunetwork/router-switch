@@ -1,0 +1,91 @@
+Show run
+可以在任何位置使用show run
+Show run+特定关键字=查看running配置
+-Show run interface
+-Show run nat
+-Show run tunnel-group
+Show run all+特定关键字=查看详细配置
+-Show run all tunnel-group
+
+
+监控性能
+● show cpu usage
+● show memory
+● show perfmon
+
+
+sh route
+sh int ip bri
+sh nameif
+
+
+查看连接状态信息
+
+ASAFW# show conn
+
+1 in use, 13 most used
+
+TCP Outside 202.100.1.1:23 Inside 10.1.1.1:11001, idle 0:00:10, bytes 116, flags UIO
+
+1.TCP插口对信息
+
+源:10.1.1.1 源端口:11001 目的:202.100.1.1 目的端口:23
+
+2.闲置时间
+
+10秒钟
+
+3.传输字节数
+
+116
+
+4.Flags: U-up I-inbound data O-outbound data
+
+
+本地连接表
+
+在本地连接表中，Cisco ASA跟踪所有穿越ASA的主机通讯。
+
+1.在本地主机表中，维护主机的状态统计信息。
+
+2.主机对象能够展示和这个主机相关的所有连接。
+
+QYTANG-ASA# show local-host
+
+Interface DMZ: 1 active, 1 maximum active, 0 denied
+
+Interface Inside: 2 active, 2 maximum active, 0 denied
+
+local host: <10.1.1.1>,
+
+TCP flow count/limit = 2/unlimited
+
+TCP embryonic count to host = 0
+
+TCP intercept watermark = unlimited
+
+UDP flow count/limit = 0/unlimited
+
+Conn:
+
+TCP Outside 202.100.1.1:23 Inside 10.1.1.1:26011, idle 0:00:28, bytes 256, flags UIO
+
+TCP Outside 202.100.1.1:45790 Inside 10.1.1.1:23, idle 0:00:14, bytes 262, flags UIOB
+
+Interface Outside: 1 active, 3 maximum active, 0 denied
+
+local host: <202.100.1.1>,
+
+TCP flow count/limit = 2/unlimited
+
+TCP embryonic count to host = 0
+
+TCP intercept watermark = unlimited
+
+UDP flow count/limit = 0/unlimited
+
+Conn:
+
+TCP Outside 202.100.1.1:45790 Inside 10.1.1.1:23, idle 0:00:14, bytes 262, flags UIOB
+
+TCP Outside 202.100.1.1:23 Inside 10.1.1.1:26011, idle 0:00:28, bytes 256, flags UIO

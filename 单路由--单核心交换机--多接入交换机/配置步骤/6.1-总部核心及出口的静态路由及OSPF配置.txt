@@ -1,0 +1,29 @@
+# MAIN-SW
+
+conf t
+router ospf 1
+network 192.168.1.0 0.0.0.255 area
+network 192.168.1.0 0.0.0.255 area 0
+network 192.168.2.0 0.0.0.255 area 0
+network 192.168.3.0 0.0.0.255 area 0
+network 192.168.4.0 0.0.0.255 area 0
+network 192.168.5.0 0.0.0.255 area 0
+network 192.168.6.0 0.0.0.255 area 0
+network 192.168.7.0 0.0.0.255 area 0
+network 192.168.8.0 0.0.0.255 area 0
+network 192.168.11.0 0.0.0.255 area 0
+end
+wr
+!
+
+
+# EDGE-R
+
+conf t
+ip route 0.0.0.0 0.0.0.0 211.1.1.1
+router ospf 2
+network 192.168.11.0 0.0.0.255 area 0
+default-information originate
+end
+wr
+!

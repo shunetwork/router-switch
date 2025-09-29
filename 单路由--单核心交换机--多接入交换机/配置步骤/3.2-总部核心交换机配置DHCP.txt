@@ -1,0 +1,69 @@
+#MAIN-SW
+
+conf t
+
+ip dhcp excluded-address 192.168.1.1 192.168.1.5
+ip dhcp pool vlan10-POOL
+ network 192.168.1.10 255.255.255.0
+ default-router 192.168.1.1
+ dns-server 8.8.8.8 114.114.114.114
+ exit
+!
+!
+ip dhcp excluded-address 192.168.2.1 192.168.2.5
+ip dhcp pool vlan20-POOL
+ network 192.168.2.10 255.255.255.0
+ default-router 192.168.2.1
+ dns-server 8.8.8.8 114.114.114.114
+ exit
+!
+ip dhcp excluded-address 192.168.3.1 192.168.3.5
+ip dhcp pool vlan30-POOL
+ network 192.168.3.10 255.255.255.0
+ default-router 192.168.3.1
+ dns-server 8.8.8.8 114.114.114.114
+ exit
+!
+!
+ip dhcp excluded-address 192.168.4.1 192.168.4.5
+ip dhcp pool vlan40-POOL
+ network 192.168.4.10 255.255.255.0
+ default-router 192.168.4.1
+ dns-server 8.8.8.8 114.114.114.114
+ exit
+!
+!
+ip dhcp excluded-address 192.168.5.1 192.168.5.5
+ip dhcp pool vlan50-POOL
+ network 192.168.5.10 255.255.255.0
+ default-router 192.168.5.1
+ dns-server 8.8.8.8 114.114.114.114
+ exit
+!
+!
+ip dhcp excluded-address 192.168.6.1 192.168.6.5
+ip dhcp pool vlan60-POOL
+ network 192.168.6.10 255.255.255.0
+ default-router 192.168.6.1
+ dns-server 8.8.8.8 114.114.114.114
+ exit
+!
+!
+ip dhcp excluded-address 192.168.7.1 192.168.7.5
+ip dhcp pool vlan70-POOL
+ network 192.168.7.10 255.255.255.0
+ default-router 192.168.7.1
+ dns-server 8.8.8.8 114.114.114.114
+ exit
+!
+!
+ip dhcp excluded-address 192.168.8.1 192.168.8.5
+ip dhcp pool vlan80-POOL
+ network 192.168.8.10 255.255.255.0
+ default-router 192.168.8.1
+ dns-server 8.8.8.8 114.114.114.114
+ exit
+!
+end
+wr
+!

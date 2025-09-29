@@ -1,0 +1,76 @@
+# ISP
+
+conf t
+int s1/1
+clock rate 64000
+ip add 211.2.2.1 255.255.255.240
+no shut
+
+int s1/0
+clock rate 64000
+ip add 211.1.1.1 255.255.255.240
+no shut
+
+int f0/1
+ip add 211.3.3.1 255.255.255.240
+no shut
+end
+wr
+!
+
+conf t
+router rip
+ver 2
+network 211.1.1.0 
+network 211.2.2.0
+network 211.3.3.0
+end
+wr
+!
+
+# EDGE-R
+conf t
+int s1/0
+ip add 211.1.1.2 255.255.255.0
+no shut
+exit
+router rip 
+ver 2
+network 211.1.1.0
+do wr
+end
+!
+
+conf t
+int f0/1
+ip add 192.168.11.1 255.255.255.0
+no shut
+do wr
+end
+!
+
+# R1
+conf t
+int f0/0
+ip add 192.168.12.1 255.255.255.0
+no shut
+do wr
+end
+!
+
+conf t
+int s1/1
+ip add 211.2.2.2 255.255.255.240
+no shut
+exit
+router rip 
+ver 2
+network 211.2.2.0
+do wr
+end
+!
+
+
+
+
+

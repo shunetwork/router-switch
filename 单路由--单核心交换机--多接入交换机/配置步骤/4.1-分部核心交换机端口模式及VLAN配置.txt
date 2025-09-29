@@ -1,0 +1,45 @@
+#BRNCH-sw
+
+conf t
+ip routing
+int range g0/1-2
+sw trunk en dot1q 
+sw mod trunk
+sw trunk allowed vlan 1,90,100
+no shut
+
+int range g0/0
+sw trunk en dot1q 
+sw mod trunk
+sw trunk allowed vlan 1,90,100
+no shut
+end
+wr
+!
+
+# VLAN
+conf t
+vlan 90
+name STUDFF
+vlan 100
+name STUD-LB
+
+int vlan 90
+ip add 192.168.9.1 255.255.255.0
+no shut
+int vlan 100
+ip add 192.168.10.1 255.255.255.0
+no shut
+end
+!
+
+# conn to R1
+conf t
+int g0/0
+no switch
+ip add 192.168.12.2 255.255.255.0
+no shut
+end
+wr
+!
+

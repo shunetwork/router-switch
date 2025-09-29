@@ -1,0 +1,25 @@
+# EDGE-R
+
+conf t
+int s1/0
+ip nat outside 
+int f0/1
+ip nat inside 
+end
+wr
+!
+
+conf t
+ip nat pool ZBNAT-POOL 211.1.1.2 211.1.1.4 netmask 255.255.255.240
+access-list 100 permit ip 192.168.1.0 0.0.0.255 any
+access-list 100 permit ip 192.168.2.0 0.0.0.255 any
+access-list 100 permit ip 192.168.3.0 0.0.0.255 any
+access-list 100 permit ip 192.168.4.0 0.0.0.255 any
+access-list 100 permit ip 192.168.5.0 0.0.0.255 any
+access-list 100 permit ip 192.168.6.0 0.0.0.255 any
+access-list 100 permit ip 192.168.7.0 0.0.0.255 any
+access-list 100 permit ip 192.168.8.0 0.0.0.255 any
+ip nat inside source list 100 pool ZBNAT-POOL overload
+end
+wr
+!
