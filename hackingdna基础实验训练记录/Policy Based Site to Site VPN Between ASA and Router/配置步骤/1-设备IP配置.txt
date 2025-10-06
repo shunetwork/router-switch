@@ -1,0 +1,55 @@
+# R1
+
+conf t
+int f0/0
+ip add 10.11.11.1 255.255.255.0
+no shut
+exit
+ip route 0.0.0.0 0.0.0.0 10.11.11.10
+end
+wr
+!
+
+# ISP
+
+conf t
+int f0/0
+ip add 192.1.12.2 255.255.255.0
+no shut
+int f1/0
+ip add 192.1.23.2 255.255.255.0
+no shut
+end
+wr
+!
+
+# R3
+
+conf t
+int f0/0
+ip add 192.1.23.3 255.255.255.0
+no shut
+int lo 0
+ip add 10.11.20.3 255.255.255.0
+exit
+ip route 0.0.0.0 0.0.0.0 192.1.23.2
+
+# ASA
+
+conf t
+hostname asa
+int g0/0
+ip add 10.11.11.10 255.255.255.0
+nameif inside
+no shut
+int g0/1
+ip add 192.1.12.10 255.255.255.0
+nameif outside
+security-level 50
+no shut
+route outside 0 0 192.1.12.2
+end
+wr
+!
+
+

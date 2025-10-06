@@ -1,0 +1,67 @@
+# R3
+
+crypto isakmp policy 10
+hash md5
+authentication pre-share
+group 2
+lifetime 86400
+encryption 3des
+exit
+
+Define Key and Peer Address
+crypto isakmp key 0 cisco123 address 192.1.12.10
+
+Configure Transform Set
+crypto ipsec transform-set TSET esp-3des esp-md5-hmac
+
+Configure ACL
+access-list 101 permit ip host 10.11.20.3 host 10.11.11.1
+
+Configure Crypto Map
+crypto map CMAP 10 ipsec-isakmp
+set transform-set TSET
+set peer 192.1.12.10
+match address 101
+exit
+
+int fa0/0
+crypto map CMAP
+exit
+
+
+# ASA
+Configure VPN on ASA Firewall 
+int g0/0
+crypto ikev1 policy 10
+hash md5
+authentication pre-share
+group 2
+lifetime 86400
+encryption 3des
+exit
+
+Configure Tunnel Group
+tunnel-group 192.1.23.3 type ipsec-l2l
+tunnel-group 192.1.23.3 ipsec-attributes
+ikev1 pre-shared-key 0 cisco123
+exit
+
+Configure Transform Set
+crypto ipsec ikev1 transform-set TSET esp-3des esp-md5-hmac
+
+
+Configure ACL 
+access-list TUNNEL-ACL permit ip host 10.11.11.1 host 10.11.20.3
+
+Configure Crypto MAP and attach to Interface
+crypto map CMAP 10 match address TUNNEL-ACL
+crypto map CMAP 10 set peer 192.1.23.3
+crypto map CMAP 10 set ikev1 transform-set TSET
+crypto map CMAP interface outside
+!
+
+Enable ikev1 on Interface 
+crypto ikev1 enable outside
+end
+wr
+!
