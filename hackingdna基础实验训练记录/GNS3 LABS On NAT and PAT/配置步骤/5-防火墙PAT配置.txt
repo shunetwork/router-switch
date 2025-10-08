@@ -1,0 +1,20 @@
+# Command to clear NAT Rule and Objects (dynamic nat and objects)
+clear configure nat
+clear configure object
+
+
+# Command to see the Object and NAT Rule
+show run object
+show run nat
+
+
+# Command to Create Object for PAT 
+object network abc
+subnet 192.168.1.0 255.255.255.0
+
+
+# Create PAT Rule
+nat (inside,outside) source dynamic abc in
+end
+wr
+!

@@ -1,0 +1,41 @@
+Command to Enable ICMP on Cisco ASA
+fixup protocol icmp
+
+# for R1
+Creating Objects 
+
+object network R1_pvt
+host 192.168.1.1
+exit
+!
+
+Create object for Public Network
+object network R1_pub
+host 102.1.1.3
+exit
+!
+
+Note: IP 102.1.1.3 is the virtual ip we have defined here.
+
+Creating NAT rule 
+nat (inside,outside) source static R1_pvt R1_pub
+
+
+# for R2
+Creating Objects 
+
+object network R2_pvt
+host 192.168.1.2
+exit
+!
+
+Create object for Public Network
+object network R2_pub
+host 102.1.1.4
+exit
+!
+
+Note: IP 102.1.1.4 is the virtual ip we have defined here.
+
+Creating NAT rule 
+nat (inside,outside) source static R2_pvt R2_pub

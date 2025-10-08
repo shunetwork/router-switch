@@ -1,0 +1,21 @@
+
+
+conf t
+int g0/0
+ip add 192.168.1.10 255.255.255.0
+no shut
+nameif inside
+ip add 192.168.1.10 255.255.255.0
+exit
+int g0/1      
+no shut
+nameif outside 
+ip add 102.1.1.2 255.255.255.0
+exit
+route outside 0 0 102.1.1.1
+end
+wr
+!
+ 
+
+

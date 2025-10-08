@@ -1,0 +1,26 @@
+
+#  Command to clear NAT rule and Object which we have created earlier for Static NAT
+clear configure nat
+clear configure object
+
+
+#  To check NAT and Object
+sh run object
+sh run nat
+
+
+# create object 
+
+object network abc
+subnet 192.168.1.0 255.255.255.0 
+exit
+object network xyz
+range 102.1.1.11 102.1.1.20
+exit
+
+nat (inside,outside) source dynamic abc xyz
+!
+
+
+sh xlate
+sh nat

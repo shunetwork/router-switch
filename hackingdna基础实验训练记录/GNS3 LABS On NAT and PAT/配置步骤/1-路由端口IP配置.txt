@@ -1,0 +1,40 @@
+# R1
+
+config t
+int f0/0
+ip add 192.168.1.1 255.255.255.0
+no shut
+exit
+no ip routing
+ip default-gateway 192.168.1.10
+end
+wr
+!
+
+# R2
+
+config t
+int f0/0
+ip add 192.168.1.2 255.255.255.0
+no shut
+exit
+no ip routing
+ip default-gateway 192.168.1.10
+end
+wr
+!
+
+
+# R3
+
+config t
+int f0/0
+ip add 102.1.1.1 255.255.255.0
+no shut
+exit
+int lo1
+ip add 3.3.3.3 255.255.255.0
+exit
+end
+wr
+!
