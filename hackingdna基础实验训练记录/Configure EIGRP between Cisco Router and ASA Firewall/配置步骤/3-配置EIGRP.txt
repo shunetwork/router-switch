@@ -1,0 +1,52 @@
+# R1
+
+config t
+router eigrp 101
+no auto-summary
+network 192.168.1.0
+network 172.10.0.0 0.0.255.255
+end
+wr
+!
+
+# ASA1
+config t
+router eigrp 101
+no auto-summary
+network 192.168.1.0
+network 192.168.2.0
+network 192.168.3.0
+network 192.168.4.0
+end
+wr
+!
+
+# R2
+config t
+router eigrp 101
+no auto-summary
+network 192.168.2.0
+network 172.20.0.0 0.0.255.255
+end
+wr
+!
+
+# R3
+config t
+router eigrp 101
+no auto-summary
+network 192.168.3.0
+network 172.30.0.0 0.0.255.255
+end
+wr
+!
+
+# R4
+config t
+router eigrp 101
+no auto-summary
+network 192.168.4.0
+network 172.40.0.0 0.0.255.255
+end
+wr
+!

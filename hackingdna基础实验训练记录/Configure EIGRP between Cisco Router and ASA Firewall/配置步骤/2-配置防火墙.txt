@@ -1,0 +1,26 @@
+
+conf t
+int g0/0
+nameif inside
+ip add 192.168.1.2 255.255.255.0
+no shut
+exit
+int g0/1
+nameif dmz1
+security-level 60
+ip add 192.168.2.2 255.255.255.0
+no shut
+int g0/2
+no shut
+nameif outside
+ip add 192.168.3.2 255.255.255.0
+exit
+int g0/3
+no shut
+nameif dmz2
+security-level 50
+ip add 192.168.4.2 255.255.255.0
+exit
+end
+wr
+!
