@@ -1,0 +1,20 @@
+# R4
+
+conf t
+int e1/0
+standby 5 ip 192.168.10.2   
+standby 5 priority 103       
+standby 5 preempt 
+end
+wr
+!
+
+
+# R5
+
+config t
+int e1/1
+standby 5 ip 192.168.10.2
+end
+wr
+!
