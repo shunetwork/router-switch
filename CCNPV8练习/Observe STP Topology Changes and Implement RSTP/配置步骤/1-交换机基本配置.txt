@@ -1,0 +1,91 @@
+# D1
+
+conf t
+hostname D1
+spanning-tree mode pvst
+banner motd # D1, STP Topology Change and RSTP Lab #
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+ exit
+vlan 2
+ name SecondVLAN
+ exit
+interface vlan 1
+ ip address 10.0.0.1 255.0.0.0
+ no shut
+ exit
+int rang e0/1-2
+sw trunk en dot1q
+sw mode trunk
+no shut
+int e0/0
+sw trunk en do
+sw mode trunk
+no shut
+exit
+end
+wr
+!
+
+# D2
+
+conf t
+hostname D2
+banner motd # D2, STP Topology Change and RSTP Lab #
+spanning-tree mode pvst
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+ exit
+int e0/0
+sw trunk en do
+sw mode trunk
+no shut
+exit
+int range e1/1-2
+sw trunk en do
+sw mode trunk
+no shut
+exit
+vlan 2
+ name SecondVLAN
+ exit
+interface vlan 1
+ ip address 10.0.0.2 255.0.0.0
+ no shut
+ exit
+end
+wr
+!
+
+# A1
+
+conf t
+hostname A1
+banner motd # A1, STP Topology Change and RSTP #
+spanning-tree mode pvst
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+ exit
+int range e0/1-2
+sw trunk en do
+sw mode trunk
+no shut
+exit
+int range e1/1-2
+sw trunk en do
+sw mode trunk
+no shut
+exit
+vlan 2
+ name SecondVLAN
+ exit
+interface vlan 1
+ ip address 10.0.0.3 255.0.0.0
+ no shut
+ exit
+end
+wr
+!
