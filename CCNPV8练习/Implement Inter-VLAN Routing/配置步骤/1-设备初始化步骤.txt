@@ -1,0 +1,56 @@
+# R1
+
+conf t
+no ip domain lookup
+hostname R1
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+ exit
+banner motd # This is R1, Inter-VLAN Routing Lab #
+end
+wr
+!
+
+
+# R3
+
+conf t
+no ip domain lookup
+hostname R3
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+ exit
+banner motd # This is R1, Inter-VLAN Routing Lab #
+end
+wr
+!
+
+# D1
+
+conf t
+no ip domain lookup
+hostname D1
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+ exit
+banner motd # This is R1, Inter-VLAN Routing Lab #
+end
+wr
+!
+
+# D2
+
+conf t
+no ip domain lookup
+hostname D2
+line con 0
+ exec-timeout 0 0
+ logging synchronous
+ exit
+banner motd # This is R1, Inter-VLAN Routing Lab #
+end
+wr
+!

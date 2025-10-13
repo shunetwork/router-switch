@@ -1,0 +1,38 @@
+# D1
+
+ip routing
+vlan 50
+name Group50
+vlan 60
+name Group60
+exit
+
+int e0/1
+switchport mode access 
+switchport access vlan 50
+exit
+int e0/2
+sw mode acc
+sw acc vlan 60
+exit
+
+int vlan 50
+ip add 10.2.50.1 255.255.255.0
+no shut
+int vlan 60
+ip add 10.2.60.1 255.255.255.0
+no shut
+end
+wr
+!
+
+# D1#sh mac address-table dynamic 
+          Mac Address Table
+-------------------------------------------
+
+Vlan    Mac Address       Type        Ports
+----    -----------       --------    -----
+  50    0050.7966.6800    DYNAMIC     Et0/1
+  60    0050.7966.6801    DYNAMIC     Et0/2
+Total Mac Addresses for this criterion: 2
+
