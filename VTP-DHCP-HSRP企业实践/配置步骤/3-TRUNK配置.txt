@@ -1,0 +1,29 @@
+# SW1
+conf t
+int range e0/0,e1/1,e1/2
+sw trunk en dot1q
+sw mode trunk
+no shut
+end
+wr
+!
+
+# SW3 
+conf t
+int range e0/3,e1/1,e1/2
+sw trunk en dot1q
+sw mode trunk
+no shut
+end
+wr
+!
+
+# SW2
+conf t
+int range e0/0,e0/3
+sw trunk en dot1q
+sw mode trunk
+no shut
+end
+wr
+!

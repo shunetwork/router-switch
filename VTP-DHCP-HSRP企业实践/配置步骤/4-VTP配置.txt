@@ -1,0 +1,34 @@
+# SW1
+
+conf t
+vtp domain CCIE
+vtp ver 3
+vtp mode  server
+vtp server primary
+vtp password cisco
+vtp pruning
+end
+wr
+!
+
+# SW2
+
+conf t
+vtp domain CCIE
+vtp ver 3
+vtp mode client
+vtp password cisco
+end
+wr
+!
+
+# SW3
+
+conf t
+vtp domain CCIE
+vtp ver 3
+vtp mode client
+vtp password cisco
+end
+wr
+!

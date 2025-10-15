@@ -1,0 +1,36 @@
+# SW1
+
+conf t
+vlan 10
+name IT
+vlan 20
+name HR
+exit
+int e0/1
+sw mode acc 
+sw acc vlan 10
+exit
+int e0/2
+sw mode acc
+sw acc vlan 20
+exit
+end
+wr
+!
+
+# SW2
+
+conf t
+int e0/1
+sw mode acc
+sw acc vlan 10
+no shut
+exit
+int e0/2
+sw mode acc
+sw acc vlan 20
+no shut
+exit
+end
+wr
+!
