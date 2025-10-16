@@ -4,7 +4,7 @@ conf t
 vtp domain CCIE
 vtp ver 3
 vtp mode  server
-vtp server primary
+vtp mode  server mst
 vtp password cisco
 vtp pruning
 end
@@ -16,7 +16,8 @@ wr
 conf t
 vtp domain CCIE
 vtp ver 3
-vtp mode client
+vtp mode client vlan
+vtp mode client mst
 vtp password cisco
 end
 wr
@@ -27,7 +28,8 @@ wr
 conf t
 vtp domain CCIE
 vtp ver 3
-vtp mode client
+vtp mode client vlan
+vtp mode client mst
 vtp password cisco
 end
 wr

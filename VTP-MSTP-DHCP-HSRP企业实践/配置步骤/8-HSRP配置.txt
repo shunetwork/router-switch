@@ -1,0 +1,33 @@
+# SW1
+
+conf t
+interface vlan 10
+standby 10 ip 192.168.10.254
+standby 10 priority 110
+standby 10 preempt
+standby 10 name VLAN10-HSRP
+interface vlan 20
+standby 20 ip 192.168.20.254
+standby 20 priority 90
+standby 20 preempt
+standby 20 name VLAN20-HSRP
+end
+wr
+!
+
+# SW3
+
+conf t
+interface vlan 10
+standby 10 ip 192.168.10.254
+standby 10 priority 90
+standby 10 preempt
+standby 10 name VLAN10-HSRP
+interface vlan 20
+standby 20 ip 192.168.20.254
+standby 20 priority 110
+standby 20 preempt
+standby 20 name VLAN20-HSRP
+end
+wr
+!
