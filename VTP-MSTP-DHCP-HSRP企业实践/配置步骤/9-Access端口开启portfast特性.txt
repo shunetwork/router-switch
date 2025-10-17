@@ -1,0 +1,10 @@
+# SW1 e0/1-e0/2
+int rang e0/1-2
+spanning-tree portfast
+spanning-tree bpduguard enable
+
+# SW2 e0/1-e0/2
+
+int rang e0/1-2
+spanning-tree portfast
+spanning-tree bpduguard enable

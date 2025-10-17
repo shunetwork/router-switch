@@ -1,0 +1,25 @@
+# SW1
+
+conf t
+int range e1/1-2
+channel-group 12 mode active 
+int po 12
+switchport trunk encapsulation dot1q 
+switchport mode trunk 
+no shut
+end
+wr
+!
+
+# SW2
+
+conf t
+int range e1/1-2
+channel-group 12 mode active 
+int po 12
+switchport trunk encapsulation dot1q 
+switchport mode trunk 
+no shut
+end
+wr
+!

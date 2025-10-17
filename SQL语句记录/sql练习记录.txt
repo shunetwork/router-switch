@@ -1,0 +1,52 @@
+1、房源评分表练习case when 语句
+
+select
+count(case when 分数 <5 then 房源号 end) as '0-5',
+count(case when 分数 >=5 and 分数 <7 then 房源号 end) as '5-7',
+count(case when 分数 >=7 and 分数 <9 then 房源号 end) as '7-9',
+count(case when 分数 >=9 then 房源号 end) as '9+'
+from 评分表；
+
+
+2、找出姓名为空值的教师信息，SQL语句的书写方法如下
+
+select * from 教师表 where 教师 is NULL;
+
+3、去重
+
+select distinct 用户名，浏览时间 from 行为表;
+
+4、 用户总数和平均年龄
+
+select sum(distinct 用户ID) as 用户总数,
+	   avg(用户年龄) as 用户平均年龄
+from 用户登录信息表
+
+5、 分析购买人数、总销售金额、客单价、客单件、人均购买频次
+
+  1）select count(distinct 顾客ID) as 购买人数 from 订单表;
+  2) select sum(销售数量 * 零售价) as 总销售金额 from 订单表;
+  3) select 
+  		count(distinct 顾客ID) as 购买人数,
+  		sum(销售数量 * 零售价) as 总销售金额，
+  		sum(销售数量 * 零售价)/count(distinct 顾客ID) as 客单价
+  	from 订单表;
+  4) select   				
+  		count(订单数)/count(distinct 顾客ID) as 人均购买频次
+  	from 订单表;
+  5) 
+
+6、查询所有重复的学生姓名
+
+select 姓名
+from (
+	select 姓名, count(姓名) as 计数
+	from 学生表
+	group by 姓名
+) as 辅助表
+where 计数 > 1;
+
+select 姓名 from 学生表 group by 姓名 having count(姓名) > 1;
+
+
+
